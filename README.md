@@ -1,19 +1,23 @@
 
-```markdown
 
-Project : ChartInsight — Upload CSV/XLSX → Interactive Charts + AI Insights.
-Author  : Kukuh Tripamungkas Wicaksono (Kukuh TW)
-Email   : kukuhtw@gmail.com
-WhatsApp: https://wa.me/628129893706
-LinkedIn: https://id.linkedin.com/in/kukuhtw
-======================================================
+
+## 📬 Kontak
+
+* **Author**: Kukuh Tripamungkas Wicaksono
+* **Email**: [kukuhtw@gmail.com](mailto:kukuhtw@gmail.com)
+* **WhatsApp**: [wa.me/628129893706](https://wa.me/628129893706)
+* **LinkedIn**: [linkedin.com/in/kukuhtw](https://id.linkedin.com/in/kukuhtw)
+
+---
 
 # 📊 ChartInsight
 
 **ChartInsight** is a lightweight full-stack web app that lets users upload CSV/XLSX files, generate interactive charts, and receive AI-powered insights.  
 It combines a **Go backend** (file parsing, aggregation, OpenAI API call) and a **React + Vite frontend** (chart rendering with ECharts).
 
-🔗 Demo video: [GitHub Repository](https://github.com/kukuhtw/chartinsight)
+---
+[![Demo Video](https://img.youtube.com/vi/g-K9jKyFE8Q/0.jpg)](https://youtu.be/g-K9jKyFE8Q)
+---
 
 ---
 
@@ -166,31 +170,31 @@ Generate chart + insight
 ```mermaid
 graph TD
   subgraph Client["Client (Browser)"]
-    UI[React + Vite (ECharts)]
+    UI["React + Vite (ECharts)"]
   end
 
   subgraph FE["Frontend (Nginx static)"]
-    Static[/dist assets/]
+    Static[/"dist assets"/]
   end
 
   subgraph BE["Backend (Go + Gin) :8080"]
-    Router[Router /upload /chart /healthz]
-    Handlers[Handlers\n- UploadHandler\n- ChartHandler]
-    Services[Services\n- ParseService\n- ChartService\n- LLMService]
-    Parsers[Parsers\n- CSV Parser\n- XLSX Parser]
-    Storage[Storage\n- MemStore\n- DiskStore ./tmpdata]
-    Utils[Utils\n- infer/stats]
-    Env[(.env\nOPENAI_API_KEY\nALLOW_ORIGIN)]
+    Router["Router /upload /chart /healthz"]
+    Handlers["Handlers<br/>- UploadHandler<br/>- ChartHandler"]
+    Services["Services<br/>- ParseService<br/>- ChartService<br/>- LLMService"]
+    Parsers["Parsers<br/>- CSV Parser<br/>- XLSX Parser"]
+    Storage["Storage<br/>- MemStore<br/>- DiskStore ./tmpdata"]
+    Utils["Utils<br/>- infer/stats"]
+    Env[(".env<br/>OPENAI_API_KEY<br/>ALLOW_ORIGIN")]
   end
 
-  OpenAI[(OpenAI API\n/chat/completions)]
+  OpenAI[("OpenAI API<br/>/chat/completions")]
   
   %% Delivery
-  UI -->|GET index.html, js, css| Static
+  UI -->|"GET index.html, js, css"| Static
   Static --> UI
 
   %% App flow
-  UI -->|POST /upload (multipart)| Router
+  UI -->|"POST /upload (multipart)"| Router
   Router --> Handlers
   Handlers --> Services
   Services --> Parsers
@@ -199,12 +203,12 @@ graph TD
   Storage --> Services
   Services --> Utils
 
-  UI -->|POST /chart {uploadID,colX,colY,groupBy,agg}| Router
+  UI -->|"POST /chart {uploadID,colX,colY,groupBy,agg}"| Router
   Services --> OpenAI
   OpenAI --> Services
 
   Services --> Handlers
-  Handlers -->|JSON: {x/y/xLabels, series, stats, insight}| UI
+  Handlers -->|"JSON: {x/y/xLabels, series, stats, insight}"| UI
 
   %% Notes
   classDef svc fill:#0f6,stroke:#0b4,color:#013,font-weight:bold
@@ -254,4 +258,12 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
+
+
+
+
+
+
+
 
