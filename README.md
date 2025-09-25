@@ -1,29 +1,40 @@
 
 
+```markdown
+/*
+=============================================================================
+Project : ChartInsight — Upload CSV/XLSX → Interactive Charts + AI Insights.
+Author  : Kukuh Tripamungkas Wicaksono (Kukuh TW)
+Email   : kukuhtw@gmail.com
+WhatsApp: https://wa.me/628129893706
+LinkedIn: https://id.linkedin.com/in/kukuhtw
+=============================================================================
+*/
+
 # 📊 ChartInsight
 
-**ChartInsight** is a lightweight full-stack web app that lets users upload CSV/XLSX files, generate interactive charts, and receive AI-powered insights.
+**ChartInsight** is a lightweight full-stack web app that lets users upload CSV/XLSX files, generate interactive charts, and receive AI-powered insights.  
 It combines a **Go backend** (file parsing, aggregation, OpenAI API call) and a **React + Vite frontend** (chart rendering with ECharts).
 
 ---
 
 ## ✨ Features
 
-* 📂 **Upload CSV/XLSX** → Supports `.csv`, `.xls`, `.xlsx`
-* 🔎 **Select Columns** → Pick X/Y axis, optional Group By, and aggregation (`avg`, `sum`, `min`, `max`)
-* 📊 **Interactive Charts** → Rendered with [ECharts](https://echarts.apache.org)
-* 🤖 **AI Insights** → Calls OpenAI API to generate natural-language explanations of the chart
-* ⚡ **Modern Stack**:
-
-  * Backend: **Go + Gin**
-  * Frontend: **React + Vite + TypeScript**
-  * Containerized with **Docker Compose**
+- 📂 **Upload CSV/XLSX** → Supports `.csv`, `.xls`, `.xlsx`
+- 🔎 **Select Columns** → Pick X/Y axis, optional Group By, and aggregation (`avg`, `sum`, `min`, `max`)
+- 📊 **Interactive Charts** → Rendered with [ECharts](https://echarts.apache.org)
+- 🤖 **AI Insights** → Calls OpenAI API to generate natural-language explanations of the chart
+- ⚡ **Modern Stack**:
+  - Backend: **Go + Gin**
+  - Frontend: **React + Vite + TypeScript**
+  - Containerized with **Docker Compose**
 
 ---
 
 ## 🗂️ Project Structure
 
 ```
+
 csvxlchart/
 ├─ backend/                     # Go API
 │  ├─ cmd/server/main.go        # Entry point
@@ -38,27 +49,27 @@ csvxlchart/
 │  └─ go.mod / go.sum
 │
 └─ frontend/                    # React (Vite)
-   ├─ src/
-   │  ├─ pages/UploadPage.tsx   # File upload page
-   │  ├─ pages/ChartPage.tsx    # Chart + Insights page
-   │  ├─ components/            # UI Components
-   │  ├─ api/                   # API clients
-   │  ├─ hooks/                 # React hooks (upload, chart)
-   │  └─ types/                 # Shared types
-   ├─ Dockerfile
-   └─ package.json
-```
+├─ src/
+│  ├─ pages/UploadPage.tsx   # File upload page
+│  ├─ pages/ChartPage.tsx    # Chart + Insights page
+│  ├─ components/            # UI Components
+│  ├─ api/                   # API clients
+│  ├─ hooks/                 # React hooks (upload, chart)
+│  └─ types/                 # Shared types
+├─ Dockerfile
+└─ package.json
+
+````
 
 ---
 
 ## 🚀 Getting Started
 
 ### 1. Clone Repo
-
 ```bash
 git clone https://github.com/kukuhtw/chartinsight.git
 cd chartinsight
-```
+````
 
 ### 2. Setup Environment
 
@@ -154,9 +165,14 @@ Generate chart + insight
 
 ## 📝 License
 
+MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 
 ---
 
 ⚡ **ChartInsight** → *From raw CSV/XLSX to meaningful charts + AI insights in seconds.*
 
+```
+
 ---
+
+```
