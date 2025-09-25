@@ -175,16 +175,16 @@ graph TD
   end
 
   subgraph BE["Backend (Go + Gin) :8080"]
-    Router[Router<br/>/upload /chart /healthz]
-    Handlers[Handlers<br/>• UploadHandler<br/>• ChartHandler]
-    Services[Services<br/>• ParseService<br/>• ChartService<br/>• LLMService]
-    Parsers[Parsers<br/>• CSV Parser<br/>• XLSX Parser]
-    Storage[Storage<br/>• MemStore<br/>• DiskStore ./tmpdata]
-    Utils[Utils<br/>• infer / stats]
-    Env[(.env<br/>OPENAI_API_KEY<br/>ALLOW_ORIGIN)]
+    Router[Router /upload /chart /healthz]
+    Handlers[Handlers: UploadHandler & ChartHandler]
+    Services[Services: Parse, Chart, LLM]
+    Parsers[Parsers: CSV, XLSX]
+    Storage[Storage: MemStore, DiskStore ./tmpdata]
+    Utils[Utils: infer, stats]
+    Env((.env: OPENAI_API_KEY, ALLOW_ORIGIN))
   end
 
-  OpenAI[(OpenAI API<br/>/chat/completions)]
+  OpenAI[(OpenAI API /chat/completions)]
 
   %% Delivery
   UI -->|GET index.html, js, css| Static
@@ -207,11 +207,6 @@ graph TD
   Services --> Handlers
   Handlers -->|JSON: {x/y/xLabels, series, stats, insight}| UI
 
-  %% Styling
-  classDef svc fill:#A7F3D0,stroke:#059669,color:#064E3B,font-weight:bold
-  classDef store fill:#FFF7D6,stroke:#EAB308,color:#3F3F3F
-  class Services,Handlers,Router svc
-  class Storage store
 ```
 ---
 
@@ -255,5 +250,6 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
 
 
