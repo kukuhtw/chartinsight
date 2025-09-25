@@ -1,5 +1,4 @@
-Siap 👍. Aku rapikan README kamu supaya lebih konsisten (heading, spacing, code fence, dll).
-Berikut versi clean & rapi:
+
 
 ```markdown
 /*
@@ -178,5 +177,5 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 
 ---
 
-Mau saya tambahkan juga **badges** (Go, React, Docker, OpenAI) di bagian atas README biar tampil lebih profesional di GitHub?
 ```
+
