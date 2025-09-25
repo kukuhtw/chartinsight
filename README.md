@@ -211,7 +211,7 @@ graph TD
   classDef store fill:#ffd,stroke:#cc0,color:#333
   class Services,Handlers,Router svc
   class Storage store
-
+```
 ---
 
 ## 🧩 Sequence Diagram
@@ -254,3 +254,4 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
