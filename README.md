@@ -13,8 +13,9 @@ LinkedIn: https://id.linkedin.com/in/kukuhtw
 **ChartInsight** is a lightweight full-stack web app that lets users upload CSV/XLSX files, generate interactive charts, and receive AI-powered insights.  
 It combines a **Go backend** (file parsing, aggregation, OpenAI API call) and a **React + Vite frontend** (chart rendering with ECharts).
 
-[![Demo Screenshot](assets/demo.png)](https://github.com/kukuhtw/chartinsight)
-
+---
+[![Demo Video](https://img.youtube.com/vi/g-K9jKyFE8Q0.jpg)](https://youtu.be/g-K9jKyFE8Q)
+---
 
 ---
 
@@ -255,6 +256,7 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
 
 
 
