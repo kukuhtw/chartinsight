@@ -175,22 +175,22 @@ graph TD
   end
 
   subgraph BE["Backend (Go + Gin) :8080"]
-    Router[Router /upload /chart /healthz]
+    Router[Router: /upload /chart /healthz]
     Handlers[Handlers: UploadHandler & ChartHandler]
     Services[Services: Parse, Chart, LLM]
     Parsers[Parsers: CSV, XLSX]
     Storage[Storage: MemStore, DiskStore ./tmpdata]
     Utils[Utils: infer, stats]
-    Env((.env: OPENAI_API_KEY, ALLOW_ORIGIN))
+    Env[.env (OPENAI_API_KEY, ALLOW_ORIGIN)]
   end
 
-  OpenAI[(OpenAI API /chat/completions)]
+  OpenAI[(OpenAI API: /chat/completions)]
 
   %% Delivery
   UI -->|GET index.html, js, css| Static
   Static --> UI
 
-  %% App flow
+  %% Upload flow
   UI -->|POST /upload (multipart)| Router
   Router --> Handlers
   Handlers --> Services
@@ -200,39 +200,13 @@ graph TD
   Storage --> Services
   Services --> Utils
 
+  %% Chart flow
   UI -->|POST /chart {uploadID,colX,colY,groupBy,agg}| Router
   Services --> OpenAI
   OpenAI --> Services
 
   Services --> Handlers
-  Handlers -->|JSON: {x/y/xLabels, series, stats, insight}| UI
-```
----
-
-## 🧩 Sequence Diagram
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant Frontend
-    participant Backend
-    participant Parser
-    participant LLM
-
-    User->>Frontend: Upload CSV/XLSX
-    Frontend->>Backend: POST /upload
-    Backend->>Parser: Parse file → extract headers, rows
-    Parser-->>Backend: Columns + dataset metadata
-    Backend-->>Frontend: uploadID + columns + rows
-
-    User->>Frontend: Select X, Y, GroupBy, Agg
-    Frontend->>Backend: POST /chart (uploadID, colX, colY, groupBy, agg)
-    Backend->>Parser: Aggregate data by selection
-    Backend->>LLM: Generate insight text
-    LLM-->>Backend: Natural language explanation
-    Backend-->>Frontend: Chart data + stats + insight
-    Frontend-->>User: Render chart + AI insight
-```
+  Handlers -->|JSON {x/y, series, stats, insight}| UI
 
 ---
 
@@ -249,6 +223,7 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
 
 
 
