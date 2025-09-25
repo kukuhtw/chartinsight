@@ -206,7 +206,6 @@ graph TD
 
   Services --> Handlers
   Handlers -->|JSON: {x/y/xLabels, series, stats, insight}| UI
-
 ```
 ---
 
@@ -250,6 +249,7 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
 
 
 
