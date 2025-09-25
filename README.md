@@ -166,11 +166,7 @@ Generate chart + insight
 ```mermaid
 graph TD
   %% Subgraphs
-  subgraph Client["Client (Browser)"]
-    UI[React + Vite (ECharts)]
-  end
-
-  subgraph FE["Frontend (Nginx static)"]
+ subgraph FE["Frontend (Nginx static)"]
     Static[/dist assets/]
   end
 
@@ -223,6 +219,7 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
 
 
 
