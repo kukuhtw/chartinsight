@@ -16,7 +16,7 @@
 It combines a **Go backend** (file parsing, aggregation, OpenAI API call) and a **React + Vite frontend** (chart rendering with ECharts).
 
 ---
-[![Demo Video](https://img.youtube.com/vi/g-K9jKyFE8Q.jpg)](https://youtu.be/g-K9jKyFE8Q)
+[![Demo Video](https://img.youtube.com/vi/g-K9jKyFE8Q/0.jpg)](https://youtu.be/g-K9jKyFE8Q)
 ---
 
 ---
@@ -258,6 +258,7 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
 
 
 
