@@ -1,6 +1,7 @@
+Siap 👍. Aku rapikan README kamu supaya lebih konsisten (heading, spacing, code fence, dll).
+Berikut versi clean & rapi:
 
-
-```
+```markdown
 /*
 =============================================================================
 Project : ChartInsight — Upload CSV/XLSX → Interactive Charts + AI Insights.
@@ -20,14 +21,14 @@ It combines a **Go backend** (file parsing, aggregation, OpenAI API call) and a 
 
 ## ✨ Features
 
-- 📂 **Upload CSV/XLSX** → Supports `.csv`, `.xls`, `.xlsx`
-- 🔎 **Select Columns** → Pick X/Y axis, optional Group By, and aggregation (`avg`, `sum`, `min`, `max`)
-- 📊 **Interactive Charts** → Rendered with [ECharts](https://echarts.apache.org)
-- 🤖 **AI Insights** → Calls OpenAI API to generate natural-language explanations of the chart
-- ⚡ **Modern Stack**:
-  - Backend: **Go + Gin**
-  - Frontend: **React + Vite + TypeScript**
-  - Containerized with **Docker Compose**
+- 📂 **Upload CSV/XLSX** → Supports `.csv`, `.xls`, `.xlsx`  
+- 🔎 **Select Columns** → Pick X/Y axis, optional Group By, and aggregation (`avg`, `sum`, `min`, `max`)  
+- 📊 **Interactive Charts** → Rendered with [ECharts](https://echarts.apache.org)  
+- 🤖 **AI Insights** → Calls OpenAI API to generate natural-language explanations of the chart  
+- ⚡ **Modern Stack**:  
+  - Backend: **Go + Gin**  
+  - Frontend: **React + Vite + TypeScript**  
+  - Containerized with **Docker Compose**  
 
 ---
 
@@ -125,6 +126,7 @@ This will start:
 ### `POST /upload`
 
 Upload CSV/XLSX file
+
 **Response:**
 
 ```json
@@ -138,6 +140,7 @@ Upload CSV/XLSX file
 ### `POST /chart`
 
 Generate chart + insight
+
 **Request:**
 
 ```json
@@ -175,5 +178,5 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 
 ---
 
+Mau saya tambahkan juga **badges** (Go, React, Docker, OpenAI) di bagian atas README biar tampil lebih profesional di GitHub?
 ```
-
