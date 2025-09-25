@@ -1,12 +1,14 @@
 
 
 
-Project : ChartInsight — Upload CSV/XLSX → Interactive Charts + AI Insights.
-Author  : Kukuh Tripamungkas Wicaksono (Kukuh TW)
-Email   : kukuhtw@gmail.com
-WhatsApp: https://wa.me/628129893706
-LinkedIn: https://id.linkedin.com/in/kukuhtw
-======================================================
+## 📬 Kontak
+
+* **Author**: Kukuh Tripamungkas Wicaksono
+* **Email**: [kukuhtw@gmail.com](mailto:kukuhtw@gmail.com)
+* **WhatsApp**: [wa.me/628129893706](https://wa.me/628129893706)
+* **LinkedIn**: [linkedin.com/in/kukuhtw](https://id.linkedin.com/in/kukuhtw)
+
+---
 
 # 📊 ChartInsight
 
@@ -256,6 +258,7 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
 
 
 
