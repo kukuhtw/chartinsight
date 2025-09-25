@@ -56,8 +56,8 @@ csvxlchart/
 ### 1. Clone Repo
 
 ```bash
-git clone https://github.com/yourname/csvxlchart.git
-cd csvxlchart
+git clone https://github.com/kukuhtw/chartinsight.git
+cd chartinsight
 ```
 
 ### 2. Setup Environment

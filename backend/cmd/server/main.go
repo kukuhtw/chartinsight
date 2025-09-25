@@ -1,4 +1,14 @@
 // backend/cmd/server/main.go
+/*
+=============================================================================
+Project : ChartInsight — Upload CSV/XLSX → Interactive Charts + AI Insights.
+Author  : Kukuh Tripamungkas Wicaksono (Kukuh TW)
+Email   : kukuhtw@gmail.com
+WhatsApp: https://wa.me/628129893706
+LinkedIn: https://id.linkedin.com/in/kukuhtw
+=============================================================================
+*/
+
 package main
 
 import (
