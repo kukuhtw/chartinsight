@@ -1,0 +1,87 @@
+
+isi code front end sesuai fungsi ini
+
+Saya ingin membuat aplikasi ini. User upload data dalam bentuk csv atau xls, lalu user minta dibuatkan tampilan chart hubungan antara kolom a dengan kolom b. Aplikasi call llm api chatgpt dan menampilkaj chart serta insight 
+
+csvxlchart/
+├─ README.md
+├─ .gitignore
+├─ .env.example
+├─ docker-compose.yml
+├─ Makefile
+│
+├─ backend/                     # Go API (upload, parse, chart, LLM)
+│  ├─ go.mod
+│  ├─ go.sum                    # (otomatis setelah `go mod tidy`)
+│  ├─ Dockerfile
+│  ├─ .env.example
+│  ├─ cmd/
+│  │  └─ server/
+│  │     └─ main.go            # (kosong/placeholder)
+│  ├─ internal/
+│  │  ├─ config/               # load env, config app
+│  │  │  └─ config.go
+│  │  ├─ router/               # route registrar (gin/fiber)
+│  │  │  └─ router.go
+│  │  ├─ handlers/             # HTTP handlers (upload/chart)
+│  │  │  ├─ upload_handler.go
+│  │  │  └─ chart_handler.go
+│  │  ├─ services/             # business logic
+│  │  │  ├─ parse_service.go   # CSV/XLSX parsing abstraction
+│  │  │  ├─ chart_service.go   # prep data series/summary
+│  │  │  └─ llm_service.go     # call LLM provider
+│  │  ├─ parsers/              # adapter ke lib CSV/XLSX
+│  │  │  ├─ csv_parser.go
+│  │  │  └─ xlsx_parser.go
+│  │  ├─ storage/              # in-memory / tmp files
+│  │  │  ├─ mem_store.go
+│  │  │  └─ disk_store.go
+│  │  ├─ middleware/           # CORS, logging, recover, auth (opsional)
+│  │  │  ├─ cors.go
+│  │  │  └─ logging.go
+│  │  ├─ models/               # DTO/request/response/types
+│  │  │  ├─ dataset.go
+│  │  │  └─ chart.go
+│  │  └─ utils/                # helpers (infer tipe, stats)
+│  │     ├─ infer.go
+│  │     └─ stats.go
+│  └─ pkg/                     # (opsional: shared libs)
+│     └─ errors/               # error wrapper/typed error
+│        └─ errors.go
+│
+└─ frontend/                    # React (Vite) + ECharts/Chart.js
+   ├─ package.json
+   ├─ pnpm-lock.yaml            # atau yarn.lock / package-lock.json
+   ├─ vite.config.ts
+   ├─ tsconfig.json
+   ├─ .env.example
+   ├─ Dockerfile
+   └─ src/
+      ├─ main.tsx
+      ├─ index.css
+      ├─ app/
+      │  ├─ App.tsx
+      │  └─ routes.tsx         # (opsional: react-router)
+      ├─ pages/
+      │  ├─ UploadPage.tsx
+      │  └─ ChartPage.tsx
+      ├─ components/
+      │  ├─ FilePicker.tsx
+      │  ├─ ColumnSelector.tsx
+      │  ├─ InsightBox.tsx
+      │  └─ ChartView.tsx
+      ├─ api/
+      │  ├─ client.ts          # baseURL, fetch wrapper
+      │  ├─ upload.ts          # POST /upload
+      │  └─ chart.ts           # POST /chart
+      ├─ hooks/
+      │  ├─ useUpload.ts
+      │  └─ useChart.ts
+      ├─ types/
+      │  ├─ dataset.ts
+      │  └─ chart.ts
+      ├─ utils/
+      │  ├─ validators.ts
+      │  └─ transform.ts
+      └─ assets/
+         └─ logo.svg
