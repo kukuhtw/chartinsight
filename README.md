@@ -1,20 +1,19 @@
 
-
 ```markdown
-/*
-=============================================================================
+
 Project : ChartInsight — Upload CSV/XLSX → Interactive Charts + AI Insights.
 Author  : Kukuh Tripamungkas Wicaksono (Kukuh TW)
 Email   : kukuhtw@gmail.com
 WhatsApp: https://wa.me/628129893706
 LinkedIn: https://id.linkedin.com/in/kukuhtw
-=============================================================================
-*/
+======================================================
 
 # 📊 ChartInsight
 
 **ChartInsight** is a lightweight full-stack web app that lets users upload CSV/XLSX files, generate interactive charts, and receive AI-powered insights.  
 It combines a **Go backend** (file parsing, aggregation, OpenAI API call) and a **React + Vite frontend** (chart rendering with ECharts).
+
+🔗 Demo video: [GitHub Repository](https://github.com/kukuhtw/chartinsight)
 
 ---
 
@@ -162,6 +161,83 @@ Generate chart + insight
   "insight": "As depth increases, ROP shows a decreasing trend across wells."
 }
 ```
+## 🏗️ Architecture Diagram
+
+```mermaid
+graph TD
+  subgraph Client["Client (Browser)"]
+    UI[React + Vite (ECharts)]
+  end
+
+  subgraph FE["Frontend (Nginx static)"]
+    Static[/dist assets/]
+  end
+
+  subgraph BE["Backend (Go + Gin) :8080"]
+    Router[Router /upload /chart /healthz]
+    Handlers[Handlers\n- UploadHandler\n- ChartHandler]
+    Services[Services\n- ParseService\n- ChartService\n- LLMService]
+    Parsers[Parsers\n- CSV Parser\n- XLSX Parser]
+    Storage[Storage\n- MemStore\n- DiskStore ./tmpdata]
+    Utils[Utils\n- infer/stats]
+    Env[(.env\nOPENAI_API_KEY\nALLOW_ORIGIN)]
+  end
+
+  OpenAI[(OpenAI API\n/chat/completions)]
+  
+  %% Delivery
+  UI -->|GET index.html, js, css| Static
+  Static --> UI
+
+  %% App flow
+  UI -->|POST /upload (multipart)| Router
+  Router --> Handlers
+  Handlers --> Services
+  Services --> Parsers
+  Parsers --> Services
+  Services --> Storage
+  Storage --> Services
+  Services --> Utils
+
+  UI -->|POST /chart {uploadID,colX,colY,groupBy,agg}| Router
+  Services --> OpenAI
+  OpenAI --> Services
+
+  Services --> Handlers
+  Handlers -->|JSON: {x/y/xLabels, series, stats, insight}| UI
+
+  %% Notes
+  classDef svc fill:#0f6,stroke:#0b4,color:#013,font-weight:bold
+  classDef store fill:#ffd,stroke:#cc0,color:#333
+  class Services,Handlers,Router svc
+  class Storage store
+
+---
+
+## 🧩 Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant Backend
+    participant Parser
+    participant LLM
+
+    User->>Frontend: Upload CSV/XLSX
+    Frontend->>Backend: POST /upload
+    Backend->>Parser: Parse file → extract headers, rows
+    Parser-->>Backend: Columns + dataset metadata
+    Backend-->>Frontend: uploadID + columns + rows
+
+    User->>Frontend: Select X, Y, GroupBy, Agg
+    Frontend->>Backend: POST /chart (uploadID, colX, colY, groupBy, agg)
+    Backend->>Parser: Aggregate data by selection
+    Backend->>LLM: Generate insight text
+    LLM-->>Backend: Natural language explanation
+    Backend-->>Frontend: Chart data + stats + insight
+    Frontend-->>User: Render chart + AI insight
+```
 
 ---
 
@@ -178,4 +254,3 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
-
