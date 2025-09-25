@@ -165,6 +165,7 @@ Generate chart + insight
 
 ```mermaid
 graph TD
+  %% Subgraphs
   subgraph Client["Client (Browser)"]
     UI[React + Vite (ECharts)]
   end
@@ -174,17 +175,17 @@ graph TD
   end
 
   subgraph BE["Backend (Go + Gin) :8080"]
-    Router[Router /upload /chart /healthz]
-    Handlers[Handlers\n- UploadHandler\n- ChartHandler]
-    Services[Services\n- ParseService\n- ChartService\n- LLMService]
-    Parsers[Parsers\n- CSV Parser\n- XLSX Parser]
-    Storage[Storage\n- MemStore\n- DiskStore ./tmpdata]
-    Utils[Utils\n- infer/stats]
-    Env[(.env\nOPENAI_API_KEY\nALLOW_ORIGIN)]
+    Router[Router<br/>/upload /chart /healthz]
+    Handlers[Handlers<br/>• UploadHandler<br/>• ChartHandler]
+    Services[Services<br/>• ParseService<br/>• ChartService<br/>• LLMService]
+    Parsers[Parsers<br/>• CSV Parser<br/>• XLSX Parser]
+    Storage[Storage<br/>• MemStore<br/>• DiskStore ./tmpdata]
+    Utils[Utils<br/>• infer / stats]
+    Env[(.env<br/>OPENAI_API_KEY<br/>ALLOW_ORIGIN)]
   end
 
-  OpenAI[(OpenAI API\n/chat/completions)]
-  
+  OpenAI[(OpenAI API<br/>/chat/completions)]
+
   %% Delivery
   UI -->|GET index.html, js, css| Static
   Static --> UI
@@ -206,9 +207,9 @@ graph TD
   Services --> Handlers
   Handlers -->|JSON: {x/y/xLabels, series, stats, insight}| UI
 
-  %% Notes
-  classDef svc fill:#0f6,stroke:#0b4,color:#013,font-weight:bold
-  classDef store fill:#ffd,stroke:#cc0,color:#333
+  %% Styling
+  classDef svc fill:#A7F3D0,stroke:#059669,color:#064E3B,font-weight:bold
+  classDef store fill:#FFF7D6,stroke:#EAB308,color:#3F3F3F
   class Services,Handlers,Router svc
   class Storage store
 
@@ -254,3 +255,4 @@ MIT © 2025 [Kukuh Tripamungkas Wicaksono](https://id.linkedin.com/in/kukuhtw)
 ---
 
 ```
+
